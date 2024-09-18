@@ -1,0 +1,101 @@
+@use "../fonts" as *;
+@use "../variable" as *;
+@use "../mixin" as *;
+
+.hero {
+    padding: 120px 80px;
+    display: flex;
+    justify-content: space-around;
+    background: url("#{$imgPath}top/3732513_m.jpg") no-repeat left top / cover;
+    background-color: rgba(255, 255, 255, 0.96); /* 白を50%の透明度で設定 */
+    background-blend-mode: lighten;
+
+    @include mq() {
+        flex-direction: column;
+        padding: 120px 20px 20px ;
+    }
+    &__ttl {
+        writing-mode: vertical-rl;
+        font-size: 36px;
+        text-align: right;
+
+        @include mq() {
+            writing-mode: horizontal-tb;
+            font-size: 24px;
+            text-align: center;
+        }
+    }
+
+    &__textarea {
+        writing-mode: vertical-rl;
+        font-size: 24px;
+
+        @include mq() {
+            writing-mode: horizontal-tb;
+            
+            
+            text-align: center;
+        }
+        &-first {
+            margin-left: 56px;
+            @include mq() {
+                margin-left: 0;
+                margin-top: 40px;
+            }
+        }
+        &-second {
+            margin-left: 56px;
+            @include mq() {
+                margin-left: 0;
+                margin-top: 40px;
+            }
+        }
+        &__sard {
+            margin-left: 56px;  
+            @include mq() {
+                margin-left: 0;
+                margin-top: 40px;
+            }
+        }
+    }
+
+    &__img {
+        position: relative;
+
+        &::after {
+            position:absolute;
+            content: "";
+            top: -50%;
+            right: -100px;
+            width: 300px;
+            height: 700px;
+            background: #e7e7e7;
+
+            @include mq() {
+                top: 20px;
+                right: -10px;
+                width: 100%;
+                height: 100%;
+                
+            }
+            
+        }
+
+        
+        img {
+            position: relative;
+            z-index: 500;
+            width: 300px;
+            height: 600px;
+            object-fit: cover;
+            object-position: top left;
+
+            @include mq() {
+                margin-top: 40px;
+                width: 100%;
+                height: 400px;
+                object-position: top left;
+            }
+        }
+    }
+}

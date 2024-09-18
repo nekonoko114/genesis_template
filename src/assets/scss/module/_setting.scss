@@ -1,0 +1,101 @@
+@use "./mixin" as *;
+@use "./color" as *;
+@use "./variable" as *;
+@use "./fonts" as *;
+/**
+    リセットと初期設定を両方記載
+    共通パーツの指定 section__area section__title inner など
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+$ff-noto-sans-japanese: "Noto Sans JP", sans-serif;
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+body {
+  color: #333;
+  // font-family: "Klee One", cursive;
+  font-family: "Shippori Mincho", serif;
+  // font-family: $ff-noto-sans-japanese;
+  letter-spacing: 0.1rem;
+  line-height: 1.5;
+  @include mq() {
+    letter-spacing: 1.5px;
+  }
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+ol,
+small,
+b,
+a,
+strong,
+dl,
+dt,
+dd {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.inner {
+  width: $innerWidth1200;
+  max-width: $w100;
+  margin: $marginCenter;
+  @include mq() {
+    width: $w100;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $font-base-color;
+}
+
+.btn {
+  width: 200px;
+  background: #343434;
+  margin: 20px auto 0;
+
+  a {
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+    background: #343434;
+    padding: 8px;
+  }
+}

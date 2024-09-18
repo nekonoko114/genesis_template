@@ -1,0 +1,124 @@
+@use './color' as *;
+// @use './variabl' as *;
+
+// max-width
+$breakpoints: (
+  "md": "screen and (max-width: 767px)",
+  "tab": "screen and (min-width: 768px) and (max-width: 1199px) ",
+  "pc": "screen and (min-width: 1200px)",
+) !default;
+
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin btn($height: 80px, $width: 320px, $color: green) {
+  width: $width;
+  height: $height;
+  background: #fff;
+  border: 2px solid $color;
+  display: inline-block;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+  @include mq() {
+    width: 150px;
+  }
+  &:hover {
+    background: $color;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+}
+
+@mixin contactBtn($height: 30px,$width:24px,$color:green) {
+  width: $width;
+  height: $height;
+  background: #fff;
+  border: 2px solid $color;
+  display: inline-block;
+  border-radius: 10px;
+  transition: 0.3s;
+  color: #333;
+  cursor: pointer;
+  @include mq() {
+    width: 150px;
+  }
+  &:hover {
+    background: $color;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+}
+
+@mixin sectionTtl( $font-size : 36px , $color: $section-ttl) {
+  text-align: center;
+  font-size: $font-size;
+  margin-bottom: 16px;
+  color: $color;
+
+  @include mq() {
+    margin-bottom: 8px;
+    font-size: 24px;
+  }
+  &-mini {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 64px;
+      color: #b4b4b4;
+      @include mq() {
+        font-size: 16px;
+        margin-bottom: 32px;
+      }
+  }
+}
+
+@mixin btn($width :200px, $bg:#343434, $padding:8px , $font-size:16px) {
+  width: $width;
+  background: $bg;
+  margin: 20px auto 0;
+
+  a {
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    width: $width;
+    background: $bg;
+    padding: $padding;
+    font-size: $font-size;
+    transition: all 0.3s ease;
+    &:hover {
+      background: #fff;
+      border: 2px solid red;
+      color: red;
+      font-size: 32px;
+    }
+  }
+}
+
+@mixin contactBtn( $width: 400px , $padding: 12px, $font-size: 24px , $bg:red ) {
+    width: $width;
+    padding: $padding;
+    font-size: $font-size;
+    appearance: none;
+    border: none;
+    margin-top: 20px;
+    color: #fff;
+    background: $bg;
+    border-radius: 20px;
+    display: block;
+    margin: 80px auto;
+    box-shadow: 0px 20px 0 0 rgba($color: #efa7a7, $alpha: 0.3);
+    transition: all 0.3s ease;
+    &:hover {
+      transform: translateY(20px);
+      box-shadow: 0px 0 0 0 rgba($color: red, $alpha: 0.9);
+    }
+
+    @include mq() {
+      width: 100%;
+      margin: 40px auto;
+    }
+}

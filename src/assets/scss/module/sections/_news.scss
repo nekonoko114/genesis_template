@@ -1,0 +1,66 @@
+@use "../variable" as *;
+@use "../fonts" as *;
+@use "../setting" as *;
+@use "../mixin" as *; 
+@use "../color" as *;
+
+
+.news{
+    padding: 120px 80px;
+    background: rgb(255, 255, 247);
+
+    @include mq() {
+        padding: 120px 40px 40px;
+    }
+    &__inner {
+        
+    }
+
+    &__ttl {
+        @include sectionTtl();
+    }
+
+    &__lists {
+        background: #fff;
+        background: rgb(255, 255, 247);
+    }
+
+    &__list {
+        padding: 28px 10px;
+        border-top: 1px solid #000;
+        &:last-child {
+            border-bottom: 1px solid #000;
+            
+        }
+        time {
+            margin-right: 16px;
+            
+        }
+        span {
+            margin-right: 40px;
+            display: inline-block;
+            padding: 4px 32px;
+            background: red;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        time,span {
+            vertical-align: top;
+            @include mq() {
+                vertical-align: bottom;
+            }
+        }
+
+        a {
+            display: inline-block;
+            width: calc( 100% - 260px);
+            @include mq() {
+                display: block;
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    }
+}

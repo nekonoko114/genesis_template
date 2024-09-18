@@ -1,0 +1,20 @@
+@use './setting';
+@use './color';
+@use './variable';
+@use './mixin';
+@use './components/header';
+@use './components/footer';
+
+//sectionエリア内のスタイル各自それぞれのスタイル
+
+// HOME
+@use './sections/hero';
+@use './sections/featued';
+@use './sections/news';
+
+// 沿革　 
+@use "./historys/about";
+
+// お問合せ
+@use "./contact/contact";
+

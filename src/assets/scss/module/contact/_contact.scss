@@ -1,0 +1,167 @@
+@use "../fonts" as *;
+@use "../setting" as *;
+@use "../mixin" as *; 
+@use "../color" as *;
+
+
+.contact {
+    &__hero {
+        position: relative;
+
+        img {
+            width: 100%;
+            height:550px;
+            object-fit: cover;
+            object-position: top center;
+        }
+    }
+
+    &__ttl {
+        position:absolute;
+        top: 50%;
+        left: 80%;
+        color: #fff;
+        font-size: 72px;
+        transform: translate(-80%, -50%);
+
+        @include mq() {
+            font-size: 48px;
+            top: 20%;
+            right: 20%;
+            transform: translate(0,0);
+            writing-mode: vertical-rl;
+        }
+    }
+
+    &__form {
+        border: 1px solid #333;
+        padding: 40px;
+        margin: 80px auto;
+
+        @include mq() {
+            margin: 40px 20px;
+            width: 90%;
+        }
+
+        &__ttl {
+            @include sectionTtl($font-size:32px);
+        }
+    }
+
+    &__push {
+        margin-top: 40px;
+
+        @include mq() {
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"], 
+        input[type="tell"] {
+            border-radius: 999px;
+            width: 70%;
+            padding: 20px;
+            transition: all 0.3s ease;
+            @include mq() {
+                margin-top: 10px;
+                width: 100%;
+                padding: 8px;
+            }
+            &:hover {
+                box-shadow: inset 2px 3px 4px 2px #999999b4;
+            }
+        }
+
+        input[type="radio"] {
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+            cursor: pointer;
+            appearance: none;
+
+            
+            /* スパンタグのスタイル */
+            + span {   
+                font-size: 24px;
+                position: relative;
+                margin-right: 40px;
+                cursor: pointer;
+
+                @include mq() {
+                    font-size: 16px;
+                }
+        
+                &::before,
+                &::after {
+                    position: absolute;
+                    content: "";
+                    left: -30px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    border-radius: 50%;
+                }
+        
+                &::before {
+                    /* ここでラジオボタンが選択された場合のスタイルを定義します */
+                    width: 10px;
+                    height: 10px;
+                    background: blue;
+                }
+                &::after {
+                    width: 22px;
+                    height: 22px;
+                    border: 1px solid blue;
+                    left: -35.5px;
+                }
+            }
+        
+            &:checked + span::before {
+                width: 10px;
+                height: 10px;
+                background: blue; /* 選択されたときに赤にする */
+            }
+        
+            &:not(:checked) + span::before {
+                width: 10px;
+                height: 10px;
+                display: none;
+            }
+        }
+
+        textarea {
+            width: 70%;   
+            padding: 10px;
+            height: 300px;
+            transition: all 0.3s ease;
+            @include mq() {
+                margin-top: 10px;
+                width: 100%;
+                padding: 8px;
+            }
+
+            &:hover {
+                box-shadow: inset 2px 3px 4px 2px #999999b4;
+            }
+        }
+
+        &__btn {
+            @include contactBtn();
+        }
+    }
+
+    &__label {
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center;
+        width: 20%;
+        display: inline-block;
+        vertical-align: top;
+
+        @include mq() {
+            font-size: 16px;
+            width: 100%;
+            text-align-last: left;
+        }
+    }
+}

@@ -1,0 +1,85 @@
+@use "../setting" as *;
+@use "../mixin" as *;
+@use "../color" as *;
+@use "../variable" as *;
+
+
+.footer {
+    color: #fff;
+    &__inner {
+        background: #363535;
+        padding: 100px;
+        @include mq() {
+            padding: 20px;
+        }
+    }
+    &__menus {
+        display: flex;
+        justify-content: space-between;
+        @include mq() {
+            flex-direction: column;
+        }
+    }
+
+    &__name {
+        color: #fff;
+        font-size: 32px; 
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    &__menu {
+
+        @include mq() {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        &__item {
+            margin-bottom: 16px;
+            a {
+                color: #fff;
+                position: relative;
+                padding: 8px 16px 8px 8px;
+                transition:  all 0.3s ease 0s;
+                &::after {
+                    position: absolute;
+                    content: '';
+                    right: 0;
+                    top: 50%;
+                    border-top: 2px solid #fff;
+                    border-right: 2px solid #fff;
+                    transform: translateY(-50%) rotate(45deg);
+                    padding: 4px;
+                    transition:  all 0.3s ease 0s;
+                }
+
+                &:hover {
+                    color: red;
+                }
+                &:hover::after {
+                    border-top: 2px solid red;
+                    border-right: 2px solid red;
+                    right: -10px;
+                }
+                
+
+                
+            }
+
+        }
+
+    }
+
+    &__copy {
+        text-align: center;
+        background: #120e0e;
+        padding: 40px;
+
+        @include mq() {
+            padding: 20px;
+        }
+    }
+
+
+}
